@@ -11,32 +11,42 @@ typedef struct node {
 } NODE;
 
 NODE* reverseLinkedList(NODE* pHead) {
-    NODE* pTmp = pHead;
-//    while (NULL != pTmp) {
-//        pTmp->pNext = pTmp;
-//    }
+	if (NULL == pHead->pNext) {
+		return pHead;
+	}
+    NODE* fast = NULL;
+    NODE* slow = NULL;
+    while (pHead) {
+	  fast = pHead->pNext;
+	  pHead->pNext = slow;
+	  slow = pHead;
+	  pHead = fast;
+    }
+    return slow;
+}
 
-    return pTmp;
+NODE* createList(int nLength) {
+	return NULL;
 }
 
 int main() {
-    int length = 4;
     NODE* pHead = (NODE*)malloc(sizeof(NODE));
     NODE* pTmp = pHead;
-    for (int i = 0; i < length; i++) {
+    int length = 4;
+    for (int i = 1; i < length; i++) {
         NODE* pNode = (NODE*)malloc(sizeof(NODE));
         pNode->value = i;
         pNode->pNext = NULL;
 
         pTmp->pNext = pNode;
-        pTmp = pTmp->pNext;
+        pTmp = pNode;
     }
 
-//    pHead = reverseLinkedList(pHead);
+   pHead = reverseLinkedList(pHead);
 
     pTmp = pHead;
     while (NULL != pTmp) {
-        printf("i: %d\n", pTmp->value);
+        printf("value: %d\n", pTmp->value);
         pTmp = pTmp->pNext;
     }
 
