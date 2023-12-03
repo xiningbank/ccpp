@@ -11,8 +11,9 @@
 typedef struct store {
     unsigned int store_id;
     char store_name[MAX_STORE_NAME];
-    struct store* (*pfn_set_store_id)(struct store*, unsigned int);
-    struct store* (*pfn_set_name)(struct store*, const char*);
+    // it's unnecessary to put formal parameters in function pointer.
+    struct store* (*pfn_set_store_id)(/*struct store*, unsigned int*/);
+    struct store* (*pfn_set_name)(/*struct store*, const char**/);
 } Store;
 
 // delete the store
