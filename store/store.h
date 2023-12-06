@@ -1,5 +1,5 @@
-#ifndef __STORE_H__
-#define __STORE_H__
+#ifndef _STORE_H_
+#define _STORE_H_
 
 #include <string.h>
 #include <stdlib.h>
@@ -66,4 +66,4 @@ Store* new_store(Store* this, unsigned int store_id) {
     return this;
 }
 
-#endif // __STORE_H__
+#endif // _STORE_H_
