@@ -62,6 +62,7 @@ Store* new_store(Store* this, unsigned int store_id) {
 
     // constructor
     this->store_id = store_id;
+    memset(this->store_name, 0, MAX_STORE_NAME);
 
     return this;
 }
